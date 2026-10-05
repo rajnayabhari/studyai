@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Study Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="glass-orb orb-1"></div>
+    <div class="glass-orb orb-2"></div>
+    
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <h2>Study Assistant</h2>
+                <div class="status-badges">
+                    <span class="badge"><i class="fa-solid fa-microchip"></i> Llama 3.2</span>
+                    <span class="badge"><i class="fa-solid fa-database"></i> ChromaDB</span>
+                </div>
+            </div>
+            
+            <button id="newChatBtn" class="btn primary-btn new-chat-btn"><i class="fa-solid fa-plus"></i> New Chat</button>
+            
+            <div class="sidebar-section history-section">
+                <h3><i class="fa-solid fa-clock-rotate-left"></i> Chat History</h3>
+                <div id="historyList" class="history-list">
+                    <!-- History items injected here -->
+                </div>
+            </div>
+            
+
+            
+            <div id="userProfile" class="user-profile" style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--glass-border); display: flex; align-items: center; gap: 12px;">
+                <!-- Profile injected here via JS -->
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 class="gradient-text">Intelligent Study Assistant</h1>
+                <p>Offline RAG Architecture</p>
+            </header>
+
+            <div id="toolOutput" class="tool-output glass-panel hidden">
+                <div class="tool-output-header">
+                    <h3 id="toolOutputTitle"></h3>
+                    <button id="closeToolBtn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="toolOutputContent"></div>
+            </div>
+
+            <div class="chat-container" id="chatContainer">
+                <!-- Chat messages injected here -->
+            </div>
+
+            <div class="input-area-container">
+                <div class="tool-chips">
+                    <button id="summaryBtn" class="chip-btn" title="Generate Summary"><i class="fa-solid fa-list"></i> Unit Summary</button>
+                    <button id="quizBtn" class="chip-btn" title="Create Quiz"><i class="fa-solid fa-clipboard-question"></i> Practice Quiz</button>
+                    <button id="flashcardBtn" class="chip-btn" title="Export Flashcards"><i class="fa-solid fa-clone"></i> Flashcards</button>
+                    <button id="exportPdfBtn" class="chip-btn" title="Download Notes"><i class="fa-solid fa-file-pdf"></i> Export Session</button>
+                </div>                
+                <div id="uploadStatus" class="status-text hidden" style="text-align: center; margin-top: 10px; font-size: 0.9rem;"></div>
+
+                <div class="input-area">
+                    <button id="ttsToggleBtn" class="tts-btn glass-panel" title="Toggle Read Aloud"><i class="fa-solid fa-volume-high"></i></button>
+                    <button id="voiceBtn" class="voice-btn glass-panel" title="Push to Talk"><i class="fa-solid fa-microphone"></i></button>
+                    <div class="input-wrapper glass-panel">
+                        <input type="file" id="fileInput" multiple accept=".pdf,.png,.jpg,.jpeg,.txt,.md,.csv" style="display: none;">
+                        <button id="attachBtn" class="attach-btn" title="Upload Documents"><i class="fa-solid fa-paperclip"></i></button>
+                        <textarea id="chatInput" placeholder="Ask a question or attach a document..." rows="1"></textarea>
+                        <button id="sendBtn" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
